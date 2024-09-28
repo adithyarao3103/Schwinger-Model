@@ -4,6 +4,8 @@ Numerical simulations of the real time dynamics of Schwinger model ($U(1)$ Wilso
 
 The theory is based on the paper: https://iopscience.iop.org/article/10.1088/1367-2630/aa89ab
 
+## Simulation Results
+
 The results are as follows, and we can see that it matches the results in the paper.
 
 ### Particle Density and Half Chain Entanglement Entropy
