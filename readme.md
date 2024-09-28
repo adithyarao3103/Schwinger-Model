@@ -1,4 +1,4 @@
-# $U(1)$ Wilson lattice gauge theories in digital quantum simulators 
+# Numerical simulation of $U(1)$ Wilson Lattice Gauge Model - The Schwinger Model
 
 Numerical simulations of the real time dynamics of Schwinger model ($U(1)$ Wilson lattice gauge theory) mapped to spin lattice system via Jordan-Wigner transformation. We perform the simulation both by exact exponentiation of the Hamiltonian, and also by Trotterization of the Hamiltonian. We present both the results below.
 
