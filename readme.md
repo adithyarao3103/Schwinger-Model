@@ -6,6 +6,9 @@ The theory is based on the paper: https://iopscience.iop.org/article/10.1088/136
 
 The results are as follows, and we can see that it matches the results in the paper.
 
+### Particle Density and Half Chain Entanglement Entropy
 ![nu_and_s](nu_and_s.png)
+
+### Electric Field
 ![elec_field](elec_field.png)
 
