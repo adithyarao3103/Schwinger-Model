@@ -98,8 +98,13 @@ By iteratively obtaining the gradients and setting the $\theta\text{s}$ for the 
 
 > TODO #2: Quantify the stopping condition for the _training_ loop. Currently, the stopping of the loop is ambiguous. I presumed that when the maximum of all $\theta$ gradients tends to zero, we will have reached the minima (which should be theoretically the case). But the maximum doesnt even reach 1e-3 after 10000 iterations, at which point the energy is barely changing by 1e-4 %, meaning that the loop can be safely terminated without giving rise to significant errors.
 
-### Order parameter
+> TODO #3: Optimize!
 
-### Renyi entropy
+### Particle Density
 
+![pd](gs_pd.png)
+
+### Order Parameter
+
+![op](gs_op.png)
 
