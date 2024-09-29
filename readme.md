@@ -32,7 +32,7 @@ The experimental protocol and results are presented in the paper by Kokail et al
 
 > Please write to me if you find any error in the following analysis
 
-To obtain the ground state wavefunction, we start with a random state as the initial state and we choose to rotate the state at each site by three angles $\theta_x~(R_x),~ \theta_y~(R_y), ~\& ~\theta_z~(R_z)$
+To obtain the ground state wavefunction, we start with a random state as the initial state and we choose to rotate the state at each site by three angles $\theta_x$ $(R_x)$, $\theta_y$ $(R_y)$, & $\theta_z$ $(R_z)$
 
 $$
 R(\vec{\theta})= \left( \exp\left(\frac{i}{2} \sigma_x \theta_{x1} \right)\times \exp\left(\frac{i}{2} \sigma_y \theta_{y1} \right)\times \exp\left(\frac{i}{2} \sigma_z \theta_{z1} \right) \right) \otimes \cdots\otimes \left( \exp\left(\frac{i}{2} \sigma_x \theta_{xN} \right)\times \exp\left(\frac{i}{2} \sigma_y \theta_{yN} \right)\times \exp\left(\frac{i}{2} \sigma_z \theta_{zN} \right) \right)
