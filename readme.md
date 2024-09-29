@@ -43,51 +43,67 @@ $$
 $$
 
 where $R_i$ denotes rotation matrix acting on site $i$, giving a parameterized state 
+
 $$
 |\psi(\vec\theta)\rangle = R(\vec\theta)|\psi_{\text{init}}\rangle
 $$
 
 In this case, the loss function which we want to minimize is the energy itself, therefore
+
 $$
 \mathrm{Loss} = L= \langle \psi(\vec\theta)| H | \psi(\vec\theta)\rangle = L= \langle \psi| R(\vec\theta)^\dagger H  R(\vec\theta)| \psi\rangle
 $$
 
 To minimize loss, we employ gradient descent method, in which we iteratively set
+
 $$
 \vec\theta = \vec\theta - \alpha {\frac{dL}{d\vec{\theta}}}
 $$
+
 with $\alpha$ being the learning rate.
 
 The derivative of loss is given as 
+
 $$
 \frac{dL}{d\theta_i} = \langle \psi| \frac{dR(\vec\theta)^\dagger}{d\theta_i} H  R(\vec\theta)| \psi\rangle + \langle \psi| R(\vec\theta)^\dagger H  \frac{dR(\vec\theta)}{d\theta_i}| \psi\rangle
 $$
 
 The term $\displaystyle \frac{dR}{d\theta_i}$ can be calculated as 
+
 $$
 \frac{dR}{d\theta_{xi}} =
 \cdots\otimes \left(\frac{d \exp((i/2)~\theta_{xi}\sigma_x)}{d\theta_{xi}}\times \exp((i/2)\theta_{yi}\sigma_y)\times \exp((i/2)\theta_{zi}\sigma_z)\right) \otimes \cdots
 $$
+
 which is equal to
+
 $$
 = \cdots\otimes \left( \frac{i}{2}\sigma_x\times \exp((i/2)~\theta_{xi}\sigma_x)\times \exp((i/2)\theta_{yi}\sigma_y)\times \exp((i/2)\theta_{zi}\sigma_z)\right) \otimes \cdots
 $$
+
 and similarly for $yi$ and $zi$
 
 To calculate $\displaystyle \frac{dR^\dagger}{d\theta_i}$, use the fact that $(A\otimes B)^\dagger = A^\dagger \otimes B^\dagger$, giving
+
 $$
 R(\vec\theta)^\dagger = R_1(\vec\theta_1)^\dagger\otimes R_2(\vec\theta_2)^\dagger \otimes \cdots\otimes R_N(\vec\theta_N)^\dagger
 $$
+
 and therefore
+
 $$
 \frac{dR^\dagger}{d\theta_{xi}} =
 \cdots\otimes \left(\frac{d \exp((i/2)~\theta_{xi}\sigma_x)}{d\theta_{xi}}\times \exp((i/2)\theta_{yi}\sigma_y)\times \exp((i/2)\theta_{zi}\sigma_z)\right)^\dagger \otimes \cdots
 $$
+
 which is equal to 
+
 $$
 = \cdots\otimes \left( \frac{i}{2}\sigma_x\times \exp((i/2)~\theta_{xi}\sigma_x)\times \exp((i/2)\theta_{yi}\sigma_y)\times \exp((i/2)\theta_{zi}\sigma_z)\right)^\dagger \otimes \cdots
 $$
+
 Therefore, we have 
+
 $$
 \frac{dR^\dagger}{d\theta_i} = \left( \frac{dR}{d\theta_i}  \right)^\dagger
 $$
