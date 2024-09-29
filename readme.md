@@ -124,3 +124,5 @@ By iteratively obtaining the gradients and setting the $\theta\text{s}$ for the 
 
 ![op](gs_op.png)
 
+We can see that there is a phase transition around $m_c \approx -0.5$ with the actual critical mass being $m_c \approx -0.7$ (Byrnes, T., Sriganesh, P., Bursill, R. & Hamer, C. Density matrix renormalization  group approach to the massive Schwinger model. Nucl. Phys. B 109, 202–206  (2002). )
+
