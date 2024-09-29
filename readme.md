@@ -126,3 +126,5 @@ By iteratively obtaining the gradients and setting the $\theta\text{s}$ for the 
 
 We can see that there is a phase transition around $m_c \approx -0.7$ (Byrnes, T., Sriganesh, P., Bursill, R. & Hamer, C. Density matrix renormalization  group approach to the massive Schwinger model. Nucl. Phys. B 109, 202–206  (2002). )
 
+We also see that for negative bare mass, it is energetically favourable to have particle excitations, which leads to non vanishing ground state particle density.
+
