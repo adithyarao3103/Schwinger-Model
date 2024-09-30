@@ -4,6 +4,8 @@ In this repository, we present the numerical simulations of the Schwinger model,
 
 We present both [real-time evolution](#real-time-dynamics) of particle density, entanglement entropy and electric fields for the vacuum of the Schwinger Model, and [variational quantum simulation](#variational-quantum-simulations) to obtain the ground state of the model for different mass parameters and observe the phase transitions in the model.  
 
+Further, I am working on implementing a [PINN which can be trained to obtain the ground state of the system](#pinn-for-finding-the-ground-state). Preliminarily, I have obtained the phase transition as expected, but there are deviations from the expected values at positive bare masses.
+
 ## Real-Time Dynamics
 
 [Jupyter Notebook](num_sim_schwinger.ipynb)
@@ -128,3 +130,18 @@ We can see that there is a phase transition around $m_c \approx -0.7$ (Byrnes, T
 
 We also see that for negative bare mass, it is energetically favourable to have particle excitations, which leads to non vanishing ground state particle density.
 
+## PINN for finding the ground state
+
+[Jupyter Notebook](PINN_schwinger-in_progress.ipynb)
+
+The PINN takes as input the number $n \in \{1, 2, \cdots, 2^N\}$, indicating the basis $| n \rangle^\dagger = (0,0,\cdots,1_\text{at n}, \cdots, 0,0)$ and outputs the complex amplitude corresponding to the basis. 
+
+The training is done by taking the expectation value of the hamiltonian as the loss function, to obtain the state where energy is minimum. 
+
+> TODO #1: Fix the problem with convergence. Current model does not exactly converge, and still displays fluctuations even after large epochs. 
+
+> TODO #2: Quantify the stopping condition. Current model runs the training loop without stopping at any condition. 
+
+The approximate ground state particle densities obtained by this preliminary model is as follows: 
+
+![gs_pd_pinn](gs_pd_pinn.png)
