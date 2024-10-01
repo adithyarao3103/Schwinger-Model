@@ -130,6 +130,12 @@ We can see that there is a phase transition around $m_c \approx -0.7$ (Byrnes, T
 
 We also see that for negative bare mass, it is energetically favourable to have particle excitations, which leads to non vanishing ground state particle density.
 
+### Ground State Energy
+
+![gs_energy](gs_energy.png)
+
+We see that the ground state energy is symmetric around $m_c \approx -0.7$.
+
 ## PINN for finding the ground state
 
 [Jupyter Notebook](PINN_schwinger-in_progress.ipynb)
