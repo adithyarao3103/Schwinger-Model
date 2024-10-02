@@ -116,7 +116,7 @@ By iteratively obtaining the gradients and setting the $\theta\text{s}$ for the 
 
 > TODO #2: Stopping condition for the gradient descent has been set to `max(gradient) < 1e-5`. Verify if this stopping condition is sufficient.
 
-> TODO #3: As seen from the energies plot, the ground state energy is not quite matching the exact ground state energy. Why...
+> TODO #3: The $\theta$ space has many local minima, and therefore the gradient descent can get stuck in a local minima. This behaviour can be seen from the plot of the energies. Even though the gradient has reached $10^{-5}$, the energy is not the ground state energy. This is because the algorithm has not reached the global minimum, but has rather converged to a local minimum. Deal with this, by either adding momentum, or by using dynamic learning rate. 
 
 The following are the results obtained. (`Exact` stands for values obtained from the exact diagonalization of the Hamiltonian)
 
