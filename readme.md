@@ -112,6 +112,8 @@ $$
 
 By iteratively obtaining the gradients and setting the $\theta\text{s}$ for the theory, we obtain the ground state of the Schwinger Model.
 
+At present, I have implemented the simple gradient descent algorithm, stochastic  gradient descent, and Adam optimizer.
+
 > TODO #1: Quantify the error in the ground state energy and the angles.
 
 > TODO #2: Stopping condition for the gradient descent has been set to `max(gradient) < 1e-5`. Verify if this stopping condition is sufficient.
