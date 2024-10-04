@@ -120,11 +120,11 @@ I have implemented, so far, the gradient descent, stochastic gradient descent an
 
 The noise injection and cosine annealing of the learning rate is done so that the optimizer can visit a huge portion of the configuration space, and not get stuck in a local minima. 
 
-> TODO #1: Quantify the error in the ground state energy and the angles.
+> [ ] TODO #1: Quantify the error in the ground state energy and the angles.
 
-> TODO #2: Stopping condition for the gradient descent has been set to `max(gradient) < 1e-5`. Verify if this stopping condition is sufficient.
+> [ ] TODO #2: Stopping condition for the gradient descent has been set to `max(gradient) < 1e-5`. Verify if this stopping condition is sufficient.
 
-> TODO #3: Even after implementing ADAM with injected noise and learning rate scheduling the obtained ground state energies does not match the exact ground state energy. Why?
+> [ ] TODO #3: Even after implementing ADAM with injected noise and learning rate scheduling the obtained ground state energies does not match the exact ground state energy. Why?
 
 The following are the results obtained. (`Exact` stands for values obtained from the exact diagonalization of the Hamiltonian)
 
