@@ -32,9 +32,12 @@ Here, we variationally obtain the ground state of the Schwinger Model and calcul
 
 The experimental protocol and results are presented in the paper by Kokail et al.: https://www.nature.com/articles/s41586-019-1177-4
 
+<details>
+<summary> <span style="color: yellow">Gradient calculation for optimization algorithm </span> </summary>
+
 > Please write to me if you find any error in the following analysis
 
-To obtain the ground state wavefunction, we start with a random state as the initial state and we choose to rotate the state at each site by three angles $\theta_x$ $(R_x)$, $\theta_y$ $(R_y)$, & $\theta_z$ $(R_z)$
+We start with a random state as the initial state and we choose to rotate the state at each site by three angles $\theta_x$ $(R_x)$, $\theta_y$ $(R_y)$, & $\theta_z$ $(R_z)$
 
 $$
 R(\vec{\theta})= \left( \exp\left(\frac{i}{2} \sigma_x \theta_{x1} \right)\times \exp\left(\frac{i}{2} \sigma_y \theta_{y1} \right)\times \exp\left(\frac{i}{2} \sigma_z \theta_{z1} \right) \right) \otimes \cdots\otimes \left( \exp\left(\frac{i}{2} \sigma_x \theta_{xN} \right)\times \exp\left(\frac{i}{2} \sigma_y \theta_{yN} \right)\times \exp\left(\frac{i}{2} \sigma_z \theta_{zN} \right) \right)
@@ -112,13 +115,17 @@ $$
 
 By iteratively obtaining the gradients and setting the $\theta\text{s}$ for the theory, we obtain the ground state of the Schwinger Model.
 
-At present, I have implemented the simple gradient descent algorithm, stochastic  gradient descent, and Adam optimizer.
+</details>
+
+I have implemented, so far, the gradient descent, stochastic gradient descent and adam optimizers, with cosine annealing and exponential learning rate schedulers. The results below are the results for adam optimizer with cosine annealed learning rate, and with injected noise.
+
+The noise injection and cosine annealing of the learning rate is done so that the optimizer can visit a huge portion of the configuration space, and not get stuck in a local minima. 
 
 > TODO #1: Quantify the error in the ground state energy and the angles.
 
 > TODO #2: Stopping condition for the gradient descent has been set to `max(gradient) < 1e-5`. Verify if this stopping condition is sufficient.
 
-> TODO #3: The $\theta$ space has many local minima, and therefore the gradient descent can get stuck in a local minima. This behaviour can be seen from the plot of the energies. Even though the gradient has reached $10^{-5}$, the energy is not the ground state energy. This is because the algorithm has not reached the global minimum, but has rather converged to a local minimum. Deal with this, by either adding momentum, or by using dynamic learning rate. 
+> TODO #3: Even after implementing ADAM with injected noise and learning rate scheduling the obtained ground state energies does not match the exact ground state energy. Why?
 
 The following are the results obtained. (`Exact` stands for values obtained from the exact diagonalization of the Hamiltonian)
 
@@ -130,7 +137,7 @@ The following are the results obtained. (`Exact` stands for values obtained from
 
 ![op](gs_op.png)
 
-We can see that there is a phase transition around $m_c \approx -0.7$ (Byrnes, T., Sriganesh, P., Bursill, R. & Hamer, C. Density matrix renormalization  group approach to the massive Schwinger model. Nucl. Phys. B 109, 202–206  (2002). )
+We can see that there is a phase transition around $m_c \approx -0.7$ `(Byrnes, T., Sriganesh, P., Bursill, R. & Hamer, C. Density matrix renormalization  group approach to the massive Schwinger model. Nucl. Phys. B 109, 202–206  (2002). )`
 
 We also see that for negative bare mass, it is energetically favourable to have particle excitations, which leads to non vanishing ground state particle density.
 
