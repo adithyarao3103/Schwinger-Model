@@ -32,8 +32,7 @@ Here, we variationally obtain the ground state of the Schwinger Model and calcul
 
 The experimental protocol and results are presented in the paper by Kokail et al.: https://www.nature.com/articles/s41586-019-1177-4
 
-<details>
-<summary> <span style="color: yellow">Gradient calculation for optimization algorithm </span> </summary>
+### Gradient Calculation for optimization algorithm
 
 > Please write to me if you find any error in the following analysis
 
@@ -115,7 +114,7 @@ $$
 
 By iteratively obtaining the gradients and setting the $\theta\text{s}$ for the theory, we obtain the ground state of the Schwinger Model.
 
-</details>
+### Results
 
 I have implemented, so far, the gradient descent, stochastic gradient descent and adam optimizers, with cosine annealing and exponential learning rate schedulers. The results below are the results for adam optimizer with cosine annealed learning rate, and with injected noise.
 
