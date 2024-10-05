@@ -2,7 +2,7 @@
 
 In this repository, we present the numerical simulations of the Schwinger model, which is a $U(1)$ Wilson lattice gauge theory, by studying the dynamics of the spin-lattice model obtained by the Jordan-Wigner Transformation. 
 
-We present both [real-time evolution](#real-time-dynamics) of particle density, entanglement entropy and electric fields for the vacuum of the Schwinger Model, and [variational quantum simulation](#variational-quantum-simulations) to obtain the ground state of the model for different mass parameters and observe the phase transitions in the model.  
+We present both [real-time evolution](#real-time-dynamics) of particle density, entanglement entropy and electric fields for the vacuum of the Schwinger Model, and [variational quantum simulation](#variational-quantum-simulations) and [adiabatic quantum evolution](#adiabatic-quantum-evolution) to obtain the ground state of the model for different mass parameters and observe the phase transitions in the model.  
 
 Further, I am working on implementing a [PINN which can be trained to obtain the ground state of the system](#pinn-for-finding-the-ground-state). Preliminarily, I have obtained the phase transition as expected, but there are deviations from the expected values at positive bare masses.
 
@@ -145,6 +145,40 @@ We also see that for negative bare mass, it is energetically favourable to have 
 ![gs_energy](gs_energy.png)
 
 We see that the ground state energy is symmetric around $m_c \approx -0.7$.
+
+## Adiabatic Quantum Evolution
+
+[Jupyter Notebook](adiabatic_evolution_gs_schwinger.ipynb)
+
+In the adiabatic quantum evolution method to obtain the ground state of the Schwinger Model, we consider a time dependent Hamiltonian
+
+$$
+H(t) = \alpha(t) ~H_{\text{Schwinger}} + \beta(t) ~H_{\text{driving}}
+$$
+
+where $\alpha + \beta = 1$ and the driving Hamiltonian is a simply hamiltonian that does not commute with the Schwinger Hamiltonian.
+
+The $\alpha$ and $\beta$ are chosen to be function of time such that $\alpha(0) \ll \beta(0)$ and $\alpha(T) \gg \beta(T)$, so that the system initially starts out dominated by the driving Hamiltonian and ends up dominated by the Schwinger Hamiltonian.
+
+The initial state of the system is chosen to be the ground state of the driving Hamiltonian. We then let the state to evolve according to the time dependent Hamiltonian. If the time evolution takes place adiabatically, then the state will remain in the ground state of the driving Hamiltonian, and the final state will be the ground state of the Schwinger Hamiltonian.
+
+In our simulation, we choose the $\alpha$ and $\beta$ to change by `1/num_steps` for every one second of evolution of the state. We then obtain the ground state of the Schwinger Model by evolving the state for a total time of `num_steps` seconds.
+
+We see that it outperforms the variational method, in both time requirements and accuracy.
+
+The results are as follows:
+
+### Particle Density
+
+![ad_pd](gs_pd_adiabatic.png)
+
+### Order Parameter
+
+![ad_op](gs_op_adiabatic.png)
+
+### Ground State Energy
+
+![ad_energy](gs_energy_adiabatic.png)
 
 ## PINN for finding the ground state
 
