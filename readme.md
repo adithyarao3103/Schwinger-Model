@@ -160,7 +160,7 @@ where $\alpha + \beta = 1$ and the driving Hamiltonian is a simply hamiltonian t
 
 The $\alpha$ and $\beta$ are chosen to be function of time such that $\alpha(0) \ll \beta(0)$ and $\alpha(T) \gg \beta(T)$, so that the system initially starts out dominated by the driving Hamiltonian and ends up dominated by the Schwinger Hamiltonian.
 
-The initial state of the system is chosen to be the ground state of the driving Hamiltonian. We then let the state to evolve according to the time dependent Hamiltonian. If the time evolution takes place adiabatically, then the state will remain in the ground state of the driving Hamiltonian, and the final state will be the ground state of the Schwinger Hamiltonian.
+The initial state of the system is chosen to be the ground state of the driving Hamiltonian. We then let the state to evolve according to the time dependent Hamiltonian. If the Hamiltonian varies slowly, such that the time evolution of the state takes place adiabatically, then the state will remain in the ground state of the time dependent Hamiltonian, and therefore, the final state will be the ground state of the Schwinger Hamiltonian.
 
 In our simulation, we choose the $\alpha$ and $\beta$ to change by `1/num_steps` for every one second of evolution of the state. We then obtain the ground state of the Schwinger Model by evolving the state for a total time of `num_steps` seconds.
 
