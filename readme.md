@@ -32,8 +32,8 @@ In this approach, we use variational method to obtain the closest _product state
 
 >[!Important]
 > This method approximates the ground state using only 3N parameters, where N is the number of sites in the lattice, which is a massive improvement over exponential number of parameters required to exactly describe the state. We see that the ground states are approximated to a very good degree by the product states, indicating that the ground state has very less entanglement.
-> This method fails when the ground state of a system is a highly entangled state, in which case the Tensor Network methods produce better results.
-> The presented method is equivalent to representing the ground state by a Matrix Product State (MPS), with bond order D=1, meaning that the entanglement entropy is zero. 
+> This method fails for systems whose ground state is a highly entangled state, in which case the Tensor Network methods produce better results.
+> The presented method is equivalent to representing the ground state by a Matrix Product State (MPS), with bond order D=1. Therefore, as expected, the entanglement entropy is zero. 
 
 The experimental protocol and results are presented in the paper by Kokail et al.: https://www.nature.com/articles/s41586-019-1177-4
 
