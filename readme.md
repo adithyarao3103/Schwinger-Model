@@ -24,11 +24,16 @@ The results are as follows, and it can see that it matches the results in the pa
 
 ![elec_field](elec_field.png)
 
-## Variational Quantum Simulations
+## Variational Approximation of Ground State
 
 [Jupyter Notebook](vqe_gs_schwinger.ipynb)
 
-Here, we variationally obtain the ground state of the Schwinger Model and calculate order parameters to observe phase transition as a function of bare mass of fermions of the theory. 
+In this approach, we use variational method to obtain the closest _product state_ to the ground state of the Schwinger Model. To do so, we parameterize each spin-lattice site by three angles $\theta_x$, $\theta_y$ and $\theta_z$ and obtain the ground state of the Schwinger Model by minimizing the energy of the system. The variational parameters are optimized using the adam method. 
+
+>[!Important]
+> This method approximates the ground state using only 3N parameters, where N is the number of sites in the lattice, which is a massive improvement over exponential number of parameters required to exactly describe the state. We see that the ground states are approximated to a very good degree by the product states, indicating that the ground state has very less entanglement.
+> This method fails when the ground state of a system is a highly entangled state, in which case the Tensor Network methods produce better results.
+> The presented method is equivalent to representing the ground state by a Matrix Product State (MPS), with bond order D=1, meaning that the entanglement entropy is zero. 
 
 The experimental protocol and results are presented in the paper by Kokail et al.: https://www.nature.com/articles/s41586-019-1177-4
 
@@ -124,8 +129,6 @@ The noise injection and cosine annealing of the learning rate is done so that th
 
 > TODO #2: Stopping condition for the gradient descent has been set to `max(gradient) < 1e-5`. Verify if this stopping condition is sufficient.
 
-> TODO #3: Even after implementing ADAM with injected noise and learning rate scheduling the obtained ground state energies does not match the exact ground state energy. Why?
-
 The following are the results obtained. (`Exact` stands for values obtained from the exact diagonalization of the Hamiltonian)
 
 ### Particle Density
@@ -164,7 +167,7 @@ The initial state of the system is chosen to be the ground state of the driving 
 
 In our simulation, we choose the $\alpha$ and $\beta$ to change by `1/num_steps` for every one second of evolution of the state. We then obtain the ground state of the Schwinger Model by evolving the state for a total time of `num_steps` seconds.
 
-We see that it outperforms the variational method, in both time requirements and accuracy.
+We see that it outperforms the variational method in terms of computational requirements. It also manages to reach the entangled ground states, which were not accessible by the variational method.
 
 The results are as follows:
 
