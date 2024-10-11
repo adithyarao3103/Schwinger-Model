@@ -203,6 +203,20 @@ The results are as follows:
 
 ![ad_energy](gs_energy_adiabatic.png)
 
+### Entanglement Entropy
+
+![ad_ee](gs_entanglement_adiabatic.png)
+
+### Wavefunction Overlap
+
+![ad_overlap](gs_overlap_adiabatic.png)
+
+### Energy Difference
+
+![ad_ed](gs_energy_diff_adiabatic.png)
+
+We see that the parameters of the adiabatic evolution needs to be further refined for the points very close to the critical point. At other places, the given adiabatic evolution method is able to obtain the exact ground state of the Schwinger Model.
+
 ## PINN for finding the ground state
 
 [Jupyter Notebook](PINN_schwinger-in_progress.ipynb)
