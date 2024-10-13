@@ -196,7 +196,9 @@ Each matrix in the MPS, $A_n^i$ has parameters $`(A_{n}^{i})_{11}^r + i (A_{n}^{
 Therefore for each parameter,
 
 $$
+```
 \frac{d}{d(A_n^i)_{kl}}|\psi(\cdots, (A_n^i)_{kl}, \cdots)\rangle = \sum \left[ \mathrm{tr}\left( \cdots \frac{d A_n^i}{d (A_n^i)_{kl}} \cdots  \right)  |i_1\rangle\otimes | i_2\rangle\otimes \cdots \otimes |i_N\rangle ~~~~\text{if the basis at site} ~n~ \text{is} ~i~\text{,}~0~\text{otherwise}\right]
+```
 $$
 
 The derivative of the matrix $A_n^i $ with respect to the parameter $(A_n^i)_{kl}$, is given by
