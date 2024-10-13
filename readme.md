@@ -24,13 +24,13 @@ The results are as follows, and it can see that it matches the results in the pa
 
 ![elec_field](elec_field.png)
 
-## Variational Approximation of Ground State
+## Variational Approximation of Ground State - Seperable Product State Approximation
 
 [Jupyter Notebook](vqe_gs_schwinger.ipynb)
 
-Entanglement entropy, which quantifies the amount of entanglement (correlation) in a multipartite system, is a very good indicator of phase transitions. It is minimal at regions that are far from phase transitions, and increases as one approaches the critical value of the parameter, with it being maximum at the critical parameter. Therefore, one can approximately obtain the ground state as a (separable) product state, for regions far away from the critical point. 
+Entanglement entropy, which quantifies the amount of entanglement (correlation) in a multipartite system, is a very good indicator of phase transitions. It is minimal at regions that are far from phase transitions, and increases as one approaches the critical value of the parameter, with it being maximum at the critical parameter. Therefore, one can approximately obtain the ground state as a (separable) product state, for regions far away from the critical point.
 
-In this section, we variationally obtain the product state that best approximates the ground state for a given set of Hamiltonian parameters, and quantitatively observe quantities like particle density, order parameter and entanglement entropy, and also quantify the overlap between the variationally obtained product state and the exact state, and also the ground state energy difference for different parameters. 
+In this section, we variationally obtain the product state that best approximates the ground state for a given set of Hamiltonian parameters, and quantitatively observe quantities like particle density, order parameter and entanglement entropy, and also quantify the overlap between the variationally obtained product state and the exact state, and also the ground state energy difference for different parameters.
 
 To obtain the approximate ground state, we parameterize each spin-lattice site by three angles $\theta_x$, $\theta_y$ and $\theta_z$ and obtain the ground state of the Schwinger Model by minimizing the energy of the system. The variational parameters are optimized using the adam method.
 
@@ -168,6 +168,76 @@ We see that for $m$ away from $m_c$, the overlap is close to 1, and for $m$ clos
 ### Energy Difference
 
 ![ed](gs_energy_diff.png)
+
+## Variational Approximation of Ground State - Matrix Product State
+
+[Jupyter Notebook](tn_schwinger.ipynb)
+
+A more faithful, yet efficient representation of the quantum state for the many body system is a Matrix Product State (with closed boundary), which is a set of $Nd$ $D\times D$ matrices $A_n^i$, such that there is one matrix for every local Hilbert space dimension at every lattice site.
+
+The wavefunction of the system is defined then, in terms of the matrix products, as
+
+$$
+|\psi\rangle = \sum \mathrm{tr}(A_1^{i_1}~A_2^{i_2}~\cdots ~A_N^{i_n})~|i_1\rangle\otimes | i_2\rangle\otimes \cdots \otimes |i_N\rangle
+$$
+
+The matrices have $NdD^2 (\times 2)$ complex (real) parameters, and here I implement gradient descent for these parameters, to minimize the expectation value of the Hamiltonian.
+
+To optimize the inner product $\displaystyle \frac{\langle \psi | H | \psi \rangle}{\langle \psi|\psi\rangle}$, we perform optimization using gradient descent, using
+
+$$
+d \left ( \frac{\langle \psi | H | \psi \rangle}{\langle \psi|\psi\rangle} \right) = \frac{\langle \psi|\psi\rangle~(~ d\langle\psi|~ H |\psi \rangle + \langle\psi |H ~d|\psi \rangle ~) - \langle \psi | H | \psi  \rangle ~(~ d\langle\psi|~ |\psi \rangle + \langle\psi | ~d|\psi \rangle ~)}{\langle \psi|\psi\rangle^2}
+$$
+
+where $d$ is short for derivative with respect to a given parameter.
+
+Each matrix in the MPS, $A_n^i$ has parameters $(A_n^i)_{11}^r + i (A_n^i)_{11}^i  ,~ (A_n^i)_{12}^r + i(A_n^i)_{12}^i, \cdots ,~(A_n^i)_{DD}+ i(A_n^i)_{DD}^i$. Therefore for each parameter,
+
+$$
+\frac{d}{d(A_n^i)_{kl}}|\psi(\cdots, (A_n^i)_{kl}, \cdots)\rangle = \sum \left[ \mathrm{tr}\left( \cdots \frac{d A_n^i}{d (A_n^i)_{kl}} \cdots  \right)  |i_1\rangle\otimes | i_2\rangle\otimes \cdots \otimes |i_N\rangle ~~~~\text{if the basis at site} ~n~ \text{is} ~i~\text{,}~0~\text{otherwise}\right]
+$$
+
+The derivative of the matrix $A_n^i $ with respect to the parameter $(A_n^i)_{kl}$, is given by
+
+$$
+A_{pq} = \begin{cases}
+	1(i)~~~\text{    if }k=p, l=q~~~~(i\text{ when we are differentiating with respect to the imaginary part})\\
+	0~~~~~~~\text{elsewhere}
+\end{cases}
+$$
+
+By repeatedly obtaining the gradients and setting the parameters of the MPS to descend along the gradient, we can get a very good approximation of the ground state of the system.
+
+As an example, we have considered here two cases, $N=6$ and $N=8$, both with bond dimension $D=2$. In the first case, the actual number of (complex) parameters needed to specify the system is $2^6 = 64$, while the MPS has $6\times 2\times 2^2 = 48$ parameters. In the second case, the actual number of parameters needed is $256$, while the MPS needs only $64$ parameters. 
+
+We also see that even with such a small number of parameters, we still obtain very close approximations to the ground state, as can be seen from the results below. 
+
+### Particle Density
+
+![ad_pd](gs_pd_tn.png)
+
+### Order Parameter
+
+![ad_op](gs_op_tn.png)
+
+### Ground State Energy
+
+![ad_energy](gs_energy_tn.png)
+
+### Entanglement Entropy
+
+![ad_ee](gs_entanglement_tn.png)
+
+### Wavefunction Overlap
+
+![ad_overlap](gs_overlap_tn.png)
+
+### Energy Difference
+
+![ad_ed](gs_energy_diff_tn.png)
+
+Therefore, we see that for even small bond dimension $D=2$, which is only a marginal improvement from the $0$ entanglement case, we get a very good approximation for the ground state. This is due to the fact that even with $D=2$, we can get entanglement entropies upto $2\log_2(2) = 2$, which is still less than the exact ground state entanglement entropy. Therefore, one can safely assume that since the ground state has very low entanglement, even around critical points, the MPS with very low $D$ can also efficiently represent it.
+
 
 ## Adiabatic Quantum Evolution
 
