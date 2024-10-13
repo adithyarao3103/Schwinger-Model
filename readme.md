@@ -23,11 +23,11 @@ The results are as follows, and it can see that it matches the results in the pa
 
 ### Particle Density and Half Chain Entanglement Entropy
 
-![nu_and_s](nu_and_s.png)
+![nu_and_s](outputs/nu_and_s.png)
 
 ### Electric Field
 
-![elec_field](elec_field.png)
+![elec_field](outputs/elec_field.png)
 
 ## Variational Approximation of Ground State - Seperable Product State Approximation
 
@@ -142,11 +142,11 @@ The following are the results obtained. (`Exact` stands for values obtained from
 
 ### Particle Density
 
-![pd](gs_pd.png)
+![pd](outputs/gs_pd.png)
 
 ### Order Parameter
 
-![op](gs_op.png)
+![op](outputs/gs_op.png)
 
 We can see that there is a phase transition around $m_c \approx -0.7$ `(Byrnes, T., Sriganesh, P., Bursill, R. & Hamer, C. Density matrix renormalization  group approach to the massive Schwinger model. Nucl. Phys. B 109, 202–206  (2002). )`
 
@@ -154,25 +154,25 @@ We also see that for negative bare mass, it is energetically favourable to have 
 
 ### Ground State Energy
 
-![gs_energy](gs_energy.png)
+![gs_energy](outputs/gs_energy.png)
 
 We see that the ground state energy is symmetric around $m_c \approx -0.7$, and the difference between the exact energy and the approximate energy grows with $N$.
 
 ### Entanglement Entropy
 
-![ee](gs_entanglement.png)
+![ee](outputs/gs_entanglement.png)
 
 As expected from the phase transitions, entanglement entropy at masses away from $m_c$ is close to zero, therefore indicating that the obtained product states are very good approximations for the exact ground state, while for $m$ close to $m_c$, the entanglement entropy is large, indicating that the product states are not good approximations for the exact ground state.
 
 ### Wavefunction Overlap
 
-![overlap](gs_overlap.png)
+![overlap](outputs/gs_overlap.png)
 
 We see that for $m$ away from $m_c$, the overlap is close to 1, and for $m$ close to $m_c$, the overlap is close to 0, which is expected.
 
 ### Energy Difference
 
-![ed](gs_energy_diff.png)
+![ed](outputs/gs_energy_diff.png)
 
 ## Variational Approximation of Ground State - Matrix Product State
 
@@ -221,27 +221,27 @@ We also see that even with such a small number of parameters, we still obtain ve
 
 ### Particle Density
 
-![ad_pd](gs_pd_tn.png)
+![ad_pd](outputs/gs_pd_tn.png)
 
 ### Order Parameter
 
-![ad_op](gs_op_tn.png)
+![ad_op](outputs/gs_op_tn.png)
 
 ### Ground State Energy
 
-![ad_energy](gs_energy_tn.png)
+![ad_energy](outputs/gs_energy_tn.png)
 
 ### Entanglement Entropy
 
-![ad_ee](gs_entanglement_tn.png)
+![ad_ee](outputs/gs_entanglement_tn.png)
 
 ### Wavefunction Overlap
 
-![ad_overlap](gs_overlap_tn.png)
+![ad_overlap](outputs/gs_overlap_tn.png)
 
 ### Energy Difference
 
-![ad_ed](gs_energy_diff_tn.png)
+![ad_ed](outputs/gs_energy_diff_tn.png)
 
 Therefore, we see that for even small bond dimension $D=2$, which is only a marginal improvement from the $0$ entanglement case, we get a very good approximation for the ground state. This is due to the fact that even with $D=2$, we can get entanglement entropies upto $2\log_2(2) = 2$, which is still less than the exact ground state entanglement entropy. Therefore, one can safely assume that since the ground state has very low entanglement, even around critical points, the MPS with very low $D$ can also efficiently represent it.
 
@@ -270,27 +270,27 @@ The results are as follows:
 
 ### Particle Density
 
-![ad_pd](gs_pd_adiabatic.png)
+![ad_pd](outputs/gs_pd_adiabatic.png)
 
 ### Order Parameter
 
-![ad_op](gs_op_adiabatic.png)
+![ad_op](outputs/gs_op_adiabatic.png)
 
 ### Ground State Energy
 
-![ad_energy](gs_energy_adiabatic.png)
+![ad_energy](outputs/gs_energy_adiabatic.png)
 
 ### Entanglement Entropy
 
-![ad_ee](gs_entanglement_adiabatic.png)
+![ad_ee](outputs/gs_entanglement_adiabatic.png)
 
 ### Wavefunction Overlap
 
-![ad_overlap](gs_overlap_adiabatic.png)
+![ad_overlap](outputs/gs_overlap_adiabatic.png)
 
 ### Energy Difference
 
-![ad_ed](gs_energy_diff_adiabatic.png)
+![ad_ed](outputs/gs_energy_diff_adiabatic.png)
 
 We see that the parameters of the adiabatic evolution needs to be further refined for the points very close to the critical point. At other places, the given adiabatic evolution method is able to obtain the exact ground state of the Schwinger Model.
 
@@ -308,4 +308,4 @@ The training is done by taking the expectation value of the hamiltonian as the l
 
 The approximate ground state particle densities obtained by this preliminary model is as follows:
 
-![gs_pd_pinn](gs_pd_pinn.png)
+![gs_pd_pinn](outputs/gs_pd_pinn.png)
