@@ -243,7 +243,7 @@ We also see that even with such a small number of parameters, we still obtain ve
 
 ![ad_ed](outputs/gs_energy_diff_tn.png)
 
-Therefore, we see that for even small bond dimension $D=2$, which is only a marginal improvement from the $0$ entanglement case, we get a very good approximation for the ground state. This is due to the fact that even with $D=2$, we can get entanglement entropies upto $2\log_2(2) = 2$, which is still less than the exact ground state entanglement entropy. Therefore, one can safely assume that since the ground state has very low entanglement, even around critical points, the MPS with very low $D$ can also efficiently represent it.
+Therefore, we see that even for small bond dimension $D=2$, which is only a marginal improvement from the zero entanglement case ($D=1$), we get a very good approximation for the ground state. This is due to the fact that even with $D=2$, we can get entanglement entropies upto $2\log_2(2) = 2$, which is still less than the exact ground state entanglement entropy. Therefore, one can safely assume that since the ground state has very low entanglement, even around critical points, the MPS with very low $D$ can also efficiently represent it.
 
 
 ## Adiabatic Quantum Evolution
