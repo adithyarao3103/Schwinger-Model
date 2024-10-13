@@ -2,7 +2,12 @@
 
 In this repository, we present the numerical simulations of the Schwinger model, which is a $U(1)$ Wilson lattice gauge theory, by studying the dynamics of the spin-lattice model obtained by the Jordan-Wigner Transformation.
 
-We present both [real-time evolution](#real-time-dynamics) of particle density, entanglement entropy and electric fields for the vacuum of the Schwinger Model, and [variational quantum simulation](#variational-quantum-simulations) and [adiabatic quantum evolution](#adiabatic-quantum-evolution) to obtain the ground state of the model for different mass parameters and observe the phase transitions in the model.
+We discuss first, the [real-time evolution](#real-time-dynamics) of particle density, entanglement entropy and electric fields for the vacuum of the Schwinger Model. 
+
+We then also discuss various methods to approximate the ground state of the system, such as [variational method to find the separable product state approximation for ground state](#variational-approximation-of-ground-state---seperable-product-state-approximation), [variational method to find the MPS approximation for the ground state](#variational-approximation-of-ground-state---matrix-product-state)
+ and [adiabatic quantum evolution to obtain the ground state](#adiabatic-quantum-evolution) of the model for different bare mass.
+
+We also measure the fidelity of the approximate ground states with the exact ground state, and the phase transitions of the system.
 
 Further, I am working on implementing a [PINN which can be trained to obtain the ground state of the system](#pinn-for-finding-the-ground-state). Preliminarily, I have obtained the phase transition as expected, but there are deviations from the expected values at positive bare masses.
 
