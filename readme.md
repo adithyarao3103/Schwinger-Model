@@ -194,7 +194,7 @@ where $d$ is short for derivative with respect to a given parameter.
 Each matrix in the MPS, $A_n^i$ has parameters 
 
 $$
-(A_n^i)_{11}^r 
+(A_{n}^{i})_{11}^r + i (A_{n}^{i})_{11}^i,  ~ (A_{n}^{i})_{12}^r + i(A_{n}^{i})_{12}^i, \cdots,  ~(A_{n}^{i})_{DD} + i(A_{n}^{i})_{DD}^i
 $$
 
 Therefore for each parameter,
