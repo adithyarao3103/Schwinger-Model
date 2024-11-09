@@ -33,7 +33,8 @@ The results are as follows, and it can see that it matches the results in the pa
 
 [Jupyter Notebook](vqe_gs_schwinger.ipynb)
 
-Entanglement entropy, which quantifies the amount of entanglement (correlation) in a multipartite system, is a very good indicator of phase transitions. It is minimal at regions that are far from phase transitions, and increases as one approaches the critical value of the parameter, with it being maximum at the critical parameter. Therefore, one can approximately obtain the ground state as a (separable) product state, for regions far away from the critical point.
+Phase transitions in a system are quantified by long-range behavior. The phase transition point is where every point of the system is correlated with, or in other words "knows" every other point. Far away from the phase transition, the system doesn't know about all other parts. In a many-body quantum system, such a correlation is simply entanglement, and therefore, far away from the critical point, the system is very well approximated by a product state.
+<!-- Entanglement entropy, which quantifies the amount of entanglement (correlation) in a multipartite system, is a very good indicator of phase transitions. It is minimal at regions that are far from phase transitions, and increases as one approaches the critical value of the parameter, with it being maximum at the critical parameter. Therefore, one can approximately obtain the ground state as a (separable) product state, for regions far away from the critical point. -->
 
 In this section, we variationally obtain the product state that best approximates the ground state for a given set of Hamiltonian parameters, and quantitatively observe quantities like particle density, order parameter and entanglement entropy, and also quantify the overlap between the variationally obtained product state and the exact state, and also the ground state energy difference for different parameters.
 
