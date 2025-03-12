@@ -301,7 +301,7 @@ We see that the parameters of the adiabatic evolution needs to be further refine
 
 We first obtain the ground state of the Schwinger model by approximating it with a MPS. We then obtain the real-time dynamics of the system by evolving the state according to the hamiltonian as discussed in the first section.
 
-The results (for N=6) are as follows:
+The results (for N=8) are as follows:
 
 ### Particle Density and Half-Chain Entanglement Entropy for ground state
 
