@@ -7,7 +7,7 @@ We discuss first, the [real-time evolution](#real-time-dynamics) of particle den
 We then also discuss various methods to approximate the ground state of the system, such as [variational method to find the separable product state approximation for ground state](#variational-approximation-of-ground-state---seperable-product-state-approximation), [variational method to find the MPS approximation for the ground state](#variational-approximation-of-ground-state---matrix-product-state)
  and [adiabatic quantum evolution to obtain the ground state](#adiabatic-quantum-evolution) of the model for different bare mass.
 
-We also measure the fidelity of the approximate ground states with the exact ground state, and the phase transitions of the system.
+We also measure the fidelity of the approximate ground states with the exact ground state, and the phase transitions of the system. Then we also study the real-time dynamics of particle density, half-chain entanglement entropy and electric fields for the [ground state of the Schwinger model](#real-time-dynamics-of-the-ground-state-of-the-schwinger-model).
 
 Further, I am working on implementing a [PINN which can be trained to obtain the ground state of the system](#pinn-for-finding-the-ground-state). Preliminarily, I have obtained the phase transition as expected, but there are deviations from the expected values at positive bare masses.
 
@@ -294,6 +294,22 @@ The results are as follows:
 ![ad_ed](outputs/gs_energy_diff_adiabatic.png)
 
 We see that the parameters of the adiabatic evolution needs to be further refined for the points very close to the critical point. At other places, the given adiabatic evolution method is able to obtain the exact ground state of the Schwinger Model.
+
+## Real-time dynamics of the ground state of the Schwinger model
+
+[Jupyter Notebook](evolution_of_ground_state.ipynb)
+
+We first obtain the ground state of the Schwinger model by approximating it with a MPS. We then obtain the real-time dynamics of the system by evolving the state according to the hamiltonian as discussed in the first section.
+
+The results (for N=6) are as follows:
+
+### Particle Density and Half-Chain Entanglement Entropy for ground state
+
+![ad_pd](outputs/gs_particle_density_evolution.png)
+
+### Electric Field for ground state
+
+![ad_pd](outputs/gs_electric_field_evolution.png)
 
 ## PINN for finding the ground state
 
